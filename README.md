@@ -14,6 +14,4 @@ and dependencies (if I didn't do so already) .
 
 ## Installation Steps
 1. Configure the version you want in `versions` file , there you will find major,minor,amf,and encoder versions .
-2. Run the `GET-DEBS.sh` script , this will download all needed .deb packages from repo.radeon.com .
-3. Run the `DEBS-TO-TAR.sh` script , this will take your downloaded .deb packages and put them in a .tar file PKGBUILD could import .
-4. RUN `makepkg -si` to compile and install this whole thing .
+2. RUN `makepkg -si` to compile and install this package GROUP .
