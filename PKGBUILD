@@ -19,6 +19,7 @@ lib32-amdgpu-pro-libgl
 vulkan-amdgpu-pro
 lib32-vulkan-amdgpu-pro
 )
+
 pkgver=${major}_${minor}
 pkgrel=1
 arch=('x86_64')
@@ -29,19 +30,24 @@ makedepends=('wget')
 
 DLAGENTS='https::/usr/bin/wget --referer https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-21-50 -N %u'
 
-source=(amdgpu-pro-archive.tar.xz
-	progl
-	progl.bash-completion
-	provlk
-	provlk.bash-completion)
+source=(GET-DEBS.sh
+        versions
+        progl
+        progl.bash-completion
+        provlk
+        provlk.bash-completion)
 
 sha256sums=("SKIP"
-        feb74796c3152cbafaba89d96e68a152f209bd3058c7eb0413cbe1ab0764e96f
-	    e32801c38b475cd8df17a407726b86db3de26410f563d688325b4d4314fc5354
-	    7bb670f1588c65404ed5dc231c02c4acff4b2150c3f0eba99e052debbb089c32
-	    5c3f42f4c01bd0b8d1a582f6a476cc1afa4dfe47209b4742fcde84fa52d075df)
+            "SKIP"
+            feb74796c3152cbafaba89d96e68a152f209bd3058c7eb0413cbe1ab0764e96f
+            e32801c38b475cd8df17a407726b86db3de26410f563d688325b4d4314fc5354
+            7bb670f1588c65404ed5dc231c02c4acff4b2150c3f0eba99e052debbb089c32
+            5c3f42f4c01bd0b8d1a582f6a476cc1afa4dfe47209b4742fcde84fa52d075df)
 
-#5840aac63a3658b3f790c59e57226062e7e4bc74f3c066a3e7bc9e3065e24382
+get_debs() {
+         bash ./GET-DEBS.sh
+}
+
 
 # extracts a debian package
 # $1: deb file to extract
@@ -76,6 +82,9 @@ move_copyright() {
     find ${pkgdir}/usr/share/doc -type d -empty -delete
 }
 
+#source=amdgpu-pro-archive.tar.xz
+#sha256sums="SKIP"
+
 package_amf-amdgpu-pro () {
     pkgdesc="AMDGPU Pro Advanced Multimedia Framework"
     license=('custom: AMDGPU-PRO EULA')
@@ -90,6 +99,7 @@ package_libamdenc-amdgpu-pro () {
     pkgdesc="AMD Encode Core Library"
     license=('custom: AMDGPU-PRO EULA')
 
+    get_debs
     extract_deb "${srcdir}"/amdgpu-pro-${major}-${minor}-ubuntu-${ubuntu_ver}/libamdenc-amdgpu-pro_${enc_ver}-${minor}_amd64.deb
     move_libdir "opt/amdgpu-pro/lib/x86_64-linux-gnu" "usr/lib"
     move_copyright
@@ -181,4 +191,3 @@ package_lib32-vulkan-amdgpu-pro () {
     sed -i "s#/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlk32.so#/usr/lib32/amdvlkpro32.so#" "${pkgdir}"/usr/share/vulkan/icd.d/amd_pro_icd32.json
     find ${pkgdir} -type d -empty -delete
 }
-
