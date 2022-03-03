@@ -21,7 +21,7 @@ pkgrel=1
 arch=('x86_64')
 url=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-21-50
 license=('custom: multiple')
-groups=('Radeon_Software_for_Linux')
+groups=('Radeon_Software_for_Linux_Cosmic_Fusion_Edition')
 makedepends=('wget')
 
 DLAGENTS='https::/usr/bin/wget --referer https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-21-50 -N %u'
