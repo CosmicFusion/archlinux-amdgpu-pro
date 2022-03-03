@@ -1,4 +1,4 @@
-#"CFE" Cosmic Fusion Edition a random name just to defer this fork form upstream
+#"cfe" Cosmic Fusion Edition a random name just to defer this fork form upstream
 
 major=21.50
 minor=1373477
@@ -6,14 +6,14 @@ ubuntu_ver=20.04
 amf_ver=1.4.24
 enc_ver=1.0
 
-pkgbase=amdgpu-pro-installer-CFE
+pkgbase=amdgpu-pro-installer-cfe
 pkgname=(
-libamdenc-amdgpu-pro-CFE
-amf-amdgpu-pro-CFE
-amdgpu-pro-libgl-CFE
-lib32-amdgpu-pro-libgl-CFE
-vulkan-amdgpu-pro-CFE
-lib32-vulkan-amdgpu-pro-CFE
+libamdenc-amdgpu-pro-cfe
+amf-amdgpu-pro-cfe
+amdgpu-pro-libgl-cfe
+lib32-amdgpu-pro-libgl-cfe
+vulkan-amdgpu-pro-cfe
+lib32-vulkan-amdgpu-pro-cfe
 )
 
 pkgver=${major}_${minor}
@@ -81,7 +81,7 @@ move_copyright() {
 #source=amdgpu-pro-archive.tar.xz
 #sha256sums="SKIP"
 
-package_amf-amdgpu-pro-CFE () {
+package_amf-amdgpu-pro-cfe () {
     pkgdesc="AMDGPU Pro Advanced Multimedia Framework"
     license=('custom: AMDGPU-PRO EULA')
     depends=("libglvnd" "libx11" "vulkan-amdgpu-pro" "rocm-opencl-runtime" "libamdenc-amdgpu-pro")
@@ -92,7 +92,7 @@ package_amf-amdgpu-pro-CFE () {
     move_copyright
 }
 
-package_libamdenc-amdgpu-pro-CFE () {
+package_libamdenc-amdgpu-pro-cfe () {
     pkgdesc="AMD Encode Core Library"
     license=('custom: AMDGPU-PRO EULA')
 
@@ -102,7 +102,7 @@ package_libamdenc-amdgpu-pro-CFE () {
     move_copyright
 }
 
-package_amdgpu-pro-libgl-CFE () {
+package_amdgpu-pro-libgl-cfe () {
     pkgdesc="AMDGPU Pro OpenGL driver"
     license=('custom: AMDGPU-PRO EULA')
     provides=('libgl')
@@ -130,7 +130,7 @@ package_amdgpu-pro-libgl-CFE () {
     mv "${pkgdir}"/usr/share/drirc.d/10-amdgpu-pro.conf "${pkgdir}"/usr/share/drirc.d/10-amdgpu-pro.conf.hide
 }
 
-package_lib32-amdgpu-pro-libgl-CFE () {
+package_lib32-amdgpu-pro-libgl-cfe () {
     pkgdesc="AMDGPU Pro OpenGL driver (32-bit)"
     license=('custom: AMDGPU-PRO EULA')
     provides=('lib32-libgl')
@@ -153,7 +153,7 @@ package_lib32-amdgpu-pro-libgl-CFE () {
     sed -i "s|/opt/amdgpu-pro/lib/i386-linux-gnu|#/usr/lib32/amdgpu-pro  # commented to prevent problems of booting with amdgpu-pro, use progl32 script|" "${pkgdir}"/etc/ld.so.conf.d/10-amdgpu-pro-i386.conf
 }
 
-package_vulkan-amdgpu-pro-CFE () {
+package_vulkan-amdgpu-pro-cfe () {
     pkgdesc="AMDGPU Pro Vulkan driver"
     license=('custom: AMDGPU-PRO EULA')
     provides=('vulkan-driver')
@@ -173,7 +173,7 @@ package_vulkan-amdgpu-pro-CFE () {
     install -Dm755 "${srcdir}"/provlk.bash-completion "${pkgdir}"/usr/share/bash-completion/completions/provlk
 }
 
-package_lib32-vulkan-amdgpu-pro-CFE () {
+package_lib32-vulkan-amdgpu-pro-cfe () {
     pkgdesc="AMDGPU Pro Vulkan driver (32-bit)"
     license=('custom: AMDGPU-PRO EULA')
     provides=('lib32-vulkan-driver')
