@@ -3,7 +3,7 @@ pkgbase = amdgpu-pro-installer-CFE
 	pkgrel = 1
 	url = https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-21-50
 	arch = x86_64
-	groups = Radeon_Software_for_Linux
+	groups = Radeon_Software_for_Linux_Cosmic_Fusion_Edition
 	license = custom: multiple
 	makedepends = wget
 	source = GET-DEBS.sh
@@ -31,6 +31,7 @@ pkgname = amf-amdgpu-pro-CFE
 	depends = vulkan-amdgpu-pro
 	depends = rocm-opencl-runtime
 	depends = libamdenc-amdgpu-pro
+	conflicts = amf-amdgpu-pro
 
 pkgname = amdgpu-pro-libgl-CFE
 	pkgdesc = AMDGPU Pro OpenGL driver
@@ -43,6 +44,7 @@ pkgname = amdgpu-pro-libgl-CFE
 	depends = libxfixes
 	depends = libxxf86vm
 	provides = libgl
+	conflicts = amdgpu-pro-libgl
 	backup = etc/amd/amdapfxx.blb
 
 pkgname = lib32-amdgpu-pro-libgl-CFE
@@ -57,6 +59,7 @@ pkgname = lib32-amdgpu-pro-libgl-CFE
 	depends = lib32-libxfixes
 	depends = lib32-libxxf86vm
 	provides = lib32-libgl
+	conflicts = lib32-amdgpu-pro-libgl
 	backup = etc/amd/amdrc
 	backup = etc/ld.so.conf.d/10-amdgpu-pro-i386.conf
 
@@ -65,9 +68,11 @@ pkgname = vulkan-amdgpu-pro-CFE
 	license = custom: AMDGPU-PRO EULA
 	depends = 
 	provides = vulkan-driver
+	conflicts = vulkan-amdgpu-pro
 
 pkgname = lib32-vulkan-amdgpu-pro-CFE
 	pkgdesc = AMDGPU Pro Vulkan driver (32-bit)
 	license = custom: AMDGPU-PRO EULA
 	depends = 
 	provides = lib32-vulkan-driver
+	conflicts = lib32-vulkan-amdgpu-pro
