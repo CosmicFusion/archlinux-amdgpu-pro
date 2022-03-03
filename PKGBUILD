@@ -85,6 +85,7 @@ package_amf-amdgpu-pro-CFE () {
     pkgdesc="AMDGPU Pro Advanced Multimedia Framework"
     license=('custom: AMDGPU-PRO EULA')
     depends=("libglvnd" "libx11" "vulkan-amdgpu-pro" "rocm-opencl-runtime" "libamdenc-amdgpu-pro")
+    conflicts=("amf-amdgpu-pro")
 
     extract_deb "${srcdir}"/amdgpu-pro-${major}-${minor}-ubuntu-${ubuntu_ver}/amf-amdgpu-pro_${amf_ver}-${minor}_amd64.deb
     move_libdir "opt/amdgpu-pro/lib/x86_64-linux-gnu" "usr/lib"
@@ -107,6 +108,7 @@ package_amdgpu-pro-libgl-CFE () {
     provides=('libgl')
     depends=("libdrm" "libx11" "libxcb" "libxdamage" "libxext" "libxfixes" "libxxf86vm")
     backup=(etc/amd/amdapfxx.blb)
+    conflicts=("amdgpu-pro-libgl")
 
     extract_deb "${srcdir}"/amdgpu-pro-${major}-${minor}-ubuntu-${ubuntu_ver}/libegl1-amdgpu-pro_${major}-${minor}_amd64.deb
     extract_deb "${srcdir}"/amdgpu-pro-${major}-${minor}-ubuntu-${ubuntu_ver}/libgl1-amdgpu-pro-dri_${major}-${minor}_amd64.deb
@@ -134,6 +136,7 @@ package_lib32-amdgpu-pro-libgl-CFE () {
     provides=('lib32-libgl')
     depends=("amdgpu-pro-libgl=${major}_${minor}-${pkgrel}" "lib32-libdrm" "lib32-libx11" "lib32-libxcb" "lib32-libxdamage" "lib32-libxext" "lib32-libxfixes" "lib32-libxxf86vm")
     backup=(etc/amd/amdrc etc/ld.so.conf.d/10-amdgpu-pro-i386.conf)
+    conflicts=("lib32-amdgpu-pro-libgl")
 
     extract_deb "${srcdir}"/amdgpu-pro-${major}-${minor}-ubuntu-${ubuntu_ver}/libegl1-amdgpu-pro_${major}-${minor}_i386.deb
     extract_deb "${srcdir}"/amdgpu-pro-${major}-${minor}-ubuntu-${ubuntu_ver}/libgl1-amdgpu-pro-dri_${major}-${minor}_i386.deb
@@ -155,7 +158,7 @@ package_vulkan-amdgpu-pro-CFE () {
     license=('custom: AMDGPU-PRO EULA')
     provides=('vulkan-driver')
     depends=()
-
+    conflicts=("vulkan-amdgpu-pro")
     extract_deb "${srcdir}"/amdgpu-pro-${major}-${minor}-ubuntu-${ubuntu_ver}/vulkan-amdgpu-pro_${major}-${minor}_amd64.deb
     move_libdir "opt/amdgpu-pro/lib/x86_64-linux-gnu" "usr/lib"
     move_copyright
@@ -175,6 +178,7 @@ package_lib32-vulkan-amdgpu-pro-CFE () {
     license=('custom: AMDGPU-PRO EULA')
     provides=('lib32-vulkan-driver')
     depends=()
+    conflicts=("lib32-vulkan-amdgpu-pro")
 
     extract_deb "${srcdir}"/amdgpu-pro-${major}-${minor}-ubuntu-${ubuntu_ver}/vulkan-amdgpu-pro_${major}-${minor}_i386.deb
     move_libdir "opt/amdgpu-pro/lib/i386-linux-gnu" "usr/lib32"
