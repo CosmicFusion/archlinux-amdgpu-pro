@@ -17,7 +17,7 @@ lib32-vulkan-amdgpu-pro-cfe
 )
 
 pkgver=${major}_${minor}
-pkgrel=1
+pkgrel=2
 arch=('x86_64')
 url=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-21-50
 license=('custom: multiple')
@@ -160,7 +160,7 @@ package_lib32-amdgpu-pro-libgl-cfe () {
     pkgdesc="AMDGPU Pro OpenGL driver (32-bit)"
     license=('custom: AMDGPU-PRO EULA')
     provides=('lib32-libgl')
-    depends=("amdgpu-pro-libgl=${major}_${minor}-${pkgrel}" "lib32-libdrm" "lib32-libx11" "lib32-libxcb" "lib32-libxdamage" "lib32-libxext" "lib32-libxfixes" "lib32-libxxf86vm")
+    depends=("amdgpu-pro-libgl-cfe" "lib32-libdrm" "lib32-libx11" "lib32-libxcb" "lib32-libxdamage" "lib32-libxext" "lib32-libxfixes" "lib32-libxxf86vm")
     backup=(etc/amd/amdrc etc/ld.so.conf.d/10-amdgpu-pro-i386.conf)
     conflicts=("lib32-amdgpu-pro-libgl")
 
